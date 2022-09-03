@@ -1,0 +1,24 @@
+paths:
+  /api/v1/auth/refresh/token:
+    post:
+      tags:
+        - "auth"
+      summary: "Generate New access Token"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            required:
+              - "refreshToken"
+            properties:
+              refreshToken:
+                type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

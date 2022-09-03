@@ -1,0 +1,26 @@
+paths:
+  /api/v1/blocs/follow:
+    post:
+      tags:
+        - "bloc"
+      summary: "Follow a group of blocs"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            required:
+              - "blocIds"
+            properties:
+              blocIds:
+                type: "array"
+                items:
+                  type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

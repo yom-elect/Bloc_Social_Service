@@ -1,0 +1,17 @@
+paths:
+  /api/v1/media/bookmarked/media/{:userId}:
+    get:
+      tags:
+        - "media"
+      summary: "Get a user's bookedmarked Medias"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "page"
+          required: true
+          type: "number"
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

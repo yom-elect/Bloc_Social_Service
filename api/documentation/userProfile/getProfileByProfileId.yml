@@ -1,0 +1,17 @@
+paths:
+  /api/v1/profile/userId/{id}:
+    get:
+      tags:
+        - "userProfile"
+      summary: "Get a user's profile by the profile id"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

@@ -1,0 +1,25 @@
+paths:
+  /api/v1/auth/login:
+    post:
+      tags:
+        - "auth"
+      summary: "Login with email and password"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            required:
+              - "email"
+              - "password"
+            properties:
+              email:
+                type: "string"
+              password:
+                type: "string"
+      responses:
+        "200":
+          description: "successful operation"

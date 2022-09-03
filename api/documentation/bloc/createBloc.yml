@@ -1,0 +1,27 @@
+paths:
+  /api/v1/blocs:
+    post:
+      tags:
+        - "bloc"
+      summary: "Create a new bloc"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            required:
+              - "blocImage"
+              - "blocName"
+            properties:
+              blocImage:
+                type: "string"
+              blocName:
+                type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

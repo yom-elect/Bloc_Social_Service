@@ -1,0 +1,17 @@
+paths:
+  /api/v1/media/{mediaId}/comments:
+    get:
+      tags:
+        - "media"
+      summary: "Get a media's comments"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "mediaId"
+          in: "path"
+          required: true
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

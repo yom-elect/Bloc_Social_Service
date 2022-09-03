@@ -1,0 +1,24 @@
+paths:
+  /api/v1/users/me/update:
+    patch:
+      tags:
+        - "userAccount"
+      summary: "Update user details"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            required:
+              - "email"
+            properties:
+              email:
+                type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

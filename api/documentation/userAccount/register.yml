@@ -1,0 +1,31 @@
+paths:
+  /api/v1/users/signup:
+    post:
+      tags:
+        - "userAccount"
+      summary: "Register a user"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            required:
+              - "email"
+              - "password"
+              - "confirmPassword"
+              - "type"
+            properties:
+              email:
+                type: "string"
+              password:
+                type: "string"
+              confirmPassword:
+                type: "string"
+              type:
+                type: "string"
+      responses:
+        "200":
+          description: "successful operation"

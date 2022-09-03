@@ -1,0 +1,27 @@
+paths:
+  /api/v1/media/share:
+    post:
+      tags:
+        - "media"
+      summary: "Share a media"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            required:
+              - "friendIds"
+              - "source"
+            properties:
+              friendIds:
+                type: "array"
+              source:
+                  type: "array"
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

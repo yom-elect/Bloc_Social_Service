@@ -1,0 +1,17 @@
+paths:
+  /api/v1/users/friends/feed:
+    get:
+      tags:
+        - "userAccount"
+      summary: "Get user Friends Timeline/Feed"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "page"
+          in: "path"
+          required: false
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

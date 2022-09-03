@@ -1,0 +1,13 @@
+paths:
+  /api/v1/profile/me:
+    get:
+      tags:
+        - "userProfile"
+      summary: "Get the current user's profile"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

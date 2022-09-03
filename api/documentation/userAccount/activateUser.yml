@@ -1,0 +1,27 @@
+paths:
+  /api/v1/users/me/activate:
+    patch:
+      tags:
+        - "userAccount"
+      summary: "Activate a user"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            required:
+              - "email"
+              - "password"
+            properties:
+              email:
+                type: "string"
+              password:
+                type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

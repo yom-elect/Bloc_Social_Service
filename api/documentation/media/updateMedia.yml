@@ -1,0 +1,30 @@
+paths:
+  /api/v1/media/me/{mediaId}:
+    patch:
+      tags:
+        - "media"
+      summary: "Update a media"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "mediaId"
+          in: "path"
+          required: true
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            required:
+              - "caption"
+              - "headline"
+            properties:
+              caption:
+                type: "string"
+              headline:
+                type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

@@ -1,0 +1,13 @@
+paths:
+  /api/v1/blocs:
+    get:
+      tags:
+        - "bloc"
+      summary: "Get All blocs"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

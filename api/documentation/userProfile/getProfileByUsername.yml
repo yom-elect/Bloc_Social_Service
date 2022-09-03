@@ -1,0 +1,17 @@
+paths:
+  /api/v1/profile/username/{username}:
+    get:
+      tags:
+        - "userProfile"
+      summary: "Get a user by their username"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "username"
+          in: "path"
+          required: true
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

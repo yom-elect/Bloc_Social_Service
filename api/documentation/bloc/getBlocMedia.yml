@@ -1,0 +1,20 @@
+paths:
+  /api/v1/blocs/{blocId}/media:
+    get:
+      tags:
+        - "bloc"
+      summary: "Get Media belonging to a bloc"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "blocId"
+          in: "path"
+          required: true
+        - name: "page"
+          in: "path"
+          required: false
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

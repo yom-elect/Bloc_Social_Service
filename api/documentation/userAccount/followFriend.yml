@@ -1,0 +1,24 @@
+paths:
+  /api/v1/users/follow:
+    post:
+      tags:
+        - "userAccount"
+      summary: "Follow a friend"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            required:
+              - "friendId"
+            properties:
+              friendId:
+                type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

@@ -1,0 +1,13 @@
+paths:
+  /api/v1/users/me/mediaApprovalRequests:
+    get:
+      tags:
+        - "userAccount"
+      summary: "Get all media approval requests for a user"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

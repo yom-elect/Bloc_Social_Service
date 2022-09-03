@@ -1,0 +1,13 @@
+paths:
+  /api/v1/media/unbookmark/media/{:mediaId}:
+    delete:
+      tags:
+        - "media"
+      summary: "UnBookmark a media"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

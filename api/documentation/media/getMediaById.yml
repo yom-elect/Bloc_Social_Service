@@ -1,0 +1,17 @@
+paths:
+  /api/v1/media/{mediaId}:
+    post:
+      tags:
+        - "media"
+      summary: "Get a media by its Id"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "mediaId"
+          in: "path"
+          required: true
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

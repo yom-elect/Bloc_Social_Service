@@ -1,0 +1,24 @@
+paths:
+  /api/v1/users/username:
+    post:
+      tags:
+        - "userAccount"
+      summary: "Store a username"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            required:
+              - "username"
+            properties:
+              username:
+                type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

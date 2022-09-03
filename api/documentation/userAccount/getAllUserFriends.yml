@@ -1,0 +1,22 @@
+paths:
+  /api/v1/users/friends:
+    get:
+      tags:
+        - "userAccount"
+      summary: "Get all user's friends"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "sortParam"
+          in: "query"
+          required: true
+          type: "string"
+        - name: "order"
+          in: "query"
+          required: true
+          type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

@@ -1,0 +1,13 @@
+paths:
+  /api/v1/users/me/notifications:
+    get:
+      tags:
+        - "userAccount"
+      summary: "Get all unread notifications for a user"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

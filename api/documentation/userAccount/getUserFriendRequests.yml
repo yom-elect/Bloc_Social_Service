@@ -1,0 +1,13 @@
+paths:
+  /api/v1/users/me/friendRequests:
+    get:
+      tags:
+        - "userAccount"
+      summary: "Get all friend requests for a user"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

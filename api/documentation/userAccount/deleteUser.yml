@@ -1,0 +1,24 @@
+paths:
+  /api/v1/users/admin/deleteuser:
+    delete:
+      tags:
+        - "userAccount"
+      summary: "Delete a user"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            required:
+              - "userId"
+            properties:
+              userId:
+                type: "string"
+      responses:
+        "204":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

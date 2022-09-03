@@ -1,0 +1,13 @@
+paths:
+  /api/v1/users/me/blocs:
+    get:
+      tags:
+        - "userAccount"
+      summary: "Get all blocs of a user"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

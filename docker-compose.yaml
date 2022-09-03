@@ -1,0 +1,52 @@
+version: '3.8'
+services:
+  # Postgres
+  postgres:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: bloc_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      # POSTGRES_HOST: bloc-db
+    volumes:
+      - ./pgData:/var/lib/psotgresql/data
+    env_file:
+      - ./.env
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+      
+  bloc-app:
+    #image: node:10
+    container_name: blocapp_server
+    #entrypoint: ["bin/sh","./entrypoint.sh"]
+    build: ./
+    command: npm start
+    volumes:
+      - ./:/app
+    working_dir: /app
+    ports:
+      - "3031:3030"
+    restart: unless-stopped
+    env_file: .env
+    links: 
+      - postgres
+    environment:
+      NODE_ENV: "${NODE_ENV}"
+      DEBUG: development
+      MAIL_GUN_API_KEY: 1e97f951dd68d8badfe54b4a18c5f63c-87c34c41-82d2c8fa
+      MAIL_GUN_DOMAIN: sandbox9925af445d6449d5a640f6b48c17ab91.mailgun.org
+      EMAIL_PW: Blocapp1234.
+      EMAIL_PORT: 465
+      EMAIL_USERNAME: blocapp01@gmail.com
+      CLOUDINARY_CLOUD_NAME: bloc
+      CLOUDINARY_CLOUD_API_KEY: 835524193696788
+      CLOUDINARY_CLOUD_API_SECRET: f3T8dpqxXDmL0ZNwrk8l2i1AqPs
+      DB_NAME: bloc_db
+      DB_USER: postgres
+      DB_PASSWORD: secret
+      DB_HOST: postgres

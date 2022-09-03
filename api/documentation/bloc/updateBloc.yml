@@ -1,0 +1,27 @@
+paths:
+  /api/v1/blocs/{blocId}:
+    patch:
+      tags:
+        - "bloc"
+      summary: "Update bloc name and image"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "blocId"
+          in: "path"
+          required: true
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            properties:
+              blocImage:
+                type: "string"
+              blocName:
+                type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

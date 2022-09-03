@@ -1,0 +1,38 @@
+paths:
+  /api/v1/media:
+    post:
+      tags:
+        - "media"
+      summary: "Create a media"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            required:
+              - "caption"
+              - "headline"
+              - "mediaTypeId"
+              - "blocId"
+              - "source"
+            properties:
+              caption:
+                type: "string"
+              headline:
+                type: "string"
+              mediaTypeId:
+                type: "integer"
+              blocId:
+                type: "string"
+              source:
+                type: "array"
+              senderId:
+                type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

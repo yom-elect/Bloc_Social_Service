@@ -1,0 +1,33 @@
+paths:
+  /api/v1/auth/register:
+    post:
+      tags:
+        - "auth"
+      summary: "Register User With Email , Password, confirmPassword and Type but field is hidden to users"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            required:
+              - "email"
+              - "password"
+              - "confirmPassword"
+              - "type"
+            properties:
+              email:
+                type: "string"
+              password:
+                type: "string"
+              confirmPassword:
+                type: "string"
+              type:
+                type: "string"
+              terms:
+                type: "boolean"
+      responses:
+        "200":
+          description: "successful operation"

@@ -1,0 +1,20 @@
+paths:
+  /api/v1/media/me/{mediaId}:
+    delete:
+      tags:
+        - "media"
+      summary: "Delete a media"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "mediaId"
+          in: "path"
+          required: true
+        - name: "sourceId"
+          in: "body"
+          required: false
+      responses:
+        "204":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

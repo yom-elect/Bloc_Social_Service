@@ -1,0 +1,14 @@
+tags:
+  - name: "auth"
+  - name: "bloc"
+  - name: "media"
+  - name: "userAccount"
+  - name: "userProfile"
+schemes:
+  - "https"
+  - "http"
+securityDefinitions:
+    bearerAuth:
+      type: apiKey
+      name: "Authorization"
+      in: "header"

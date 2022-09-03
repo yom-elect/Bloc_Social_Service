@@ -1,0 +1,27 @@
+paths:
+  /api/v1/media/{mediaId}/comments:
+    post:
+      tags:
+        - "media"
+      summary: "Create a media's comments"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "mediaId"
+          in: "path"
+          required: true
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            required:
+              - "textContent"
+            properties:
+              textContent:
+                type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

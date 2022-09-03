@@ -1,0 +1,27 @@
+paths:
+  /api/v1/media/accept/{mediaId}:
+    patch:
+      tags:
+        - "media"
+      summary: "Either Save or Accept Media Request"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "mediaId"
+          in: "path"
+          required: true
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            required:
+              - "mediaTypeId"
+            properties:
+              mediaTypeId:
+                type: "integer"
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

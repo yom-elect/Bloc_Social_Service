@@ -1,0 +1,30 @@
+paths:
+  /api/v1/profile/me:
+    patch:
+      tags:
+        - "userProfile"
+      summary: "Update a user's profile details"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            required:
+              - "username"
+              - "firstName"
+              - "lastName"
+            properties:
+              source:
+                type: "string"
+              firstName:
+                type: "string"
+              lastName:
+                type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

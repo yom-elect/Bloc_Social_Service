@@ -1,0 +1,24 @@
+paths:
+  /api/v1/profile/me/photo:
+    patch:
+      tags:
+        - "userProfile"
+      summary: "Update a user's profile photo"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            type: "object"
+            required:
+              - "source"
+            properties:
+              source:
+                type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

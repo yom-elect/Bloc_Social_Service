@@ -1,0 +1,17 @@
+paths:
+  /api/v1/blocs/unfollow/{blocId}:
+    delete:
+      tags:
+        - "bloc"
+      summary: "Unfollow a bloc"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "blocId"
+          in: "path"
+          required: true
+      responses:
+        "204":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

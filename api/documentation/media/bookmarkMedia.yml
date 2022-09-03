@@ -1,0 +1,13 @@
+paths:
+  /api/v1/media/bookmark/media/{:mediaId}:
+    post:
+      tags:
+        - "media"
+      summary: "Bookmark a media"
+      produces:
+        - "application/json"
+      responses:
+        "201":
+          description: "successful operation"
+      security:
+        - bearerAuth: []

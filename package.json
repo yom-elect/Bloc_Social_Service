@@ -1,0 +1,86 @@
+{
+  "name": "bloc_app",
+  "version": "0.0.0",
+  "author": "BLOC TEAM <******@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "homepage": "",
+  "bugs": {
+    "url": "https://#"
+  },
+  "scripts": {
+    "docker:run": "docker run -it -p 3030:3030 yomielect/blocapp ",
+    "start:redis": "docker-compose -f docker-compose.yaml up -d redis",
+    "start:db": "docker-compose -f docker-compose.yaml up -d db",
+    "stop:db": "docker-compose -f docker-compose.yaml stop db",
+    "docker": "docker-compose -f docker-compose.yaml $*",
+    "start:test:db": "docker-compose -f docker-compose.yaml up -d testdb",
+    "stop:test:db": "docker-compose -f docker-compose.yaml stop testdb",
+    "start": "npx sequelize-cli db:seed:all & npx sequelize-cli db:migrate & npm run production",
+    "dev": "cross-env NODE_ENV=development node ./api/api.js",
+    "nodemon": "nodemon --exec npm run dev",
+    "lint": "eslint --fix ./api/. ./test/.",
+    "prepush": "npm test",
+    "pretest": "npm run lint",
+    "production": "cross-env NODE_ENV=production node ./api/api.js",
+    "test": "npm run create-sqlite-db; cross-env NODE_ENV=testing jest --coverage; npm run drop-sqlite-db",
+    "test-ci": "jest --coverage --forceExit"
+  },
+  "jest": {
+    "globals": {
+      "__DEV__": true
+    },
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
+    ]
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
+    "cloudinary": "^1.23.0",
+    "core-js": "^3.6.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-formidable": "^1.2.0",
+    "express-routes-mapper": "^1.1.0",
+    "express-validator": "^6.6.1",
+    "helmet": "^4.1.0",
+    "http-errors": "^1.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.20",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.4.11",
+    "nodemailer-mailgun-transport": "^2.0.0",
+    "pg": "^8.3.3",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0",
+    "socket.io": "^2.3.0",
+    "sqlite3": "^5.0.0",
+    "swagger-jsdoc": "^4.0.0",
+    "swagger-ui-express": "^4.1.4",
+    "uuid": "^8.3.0",
+    "validator": "^13.1.1"
+  },
+  "devDependencies": {
+    "babel-register": "^6.26.0",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.8.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "husky": "^4.3.0",
+    "jest": "^26.4.2",
+    "moment": "^2.28.0",
+    "mustache": "^4.0.1",
+    "nodemon": "^2.0.4",
+    "sequelize-cli": "^6.2.0",
+    "shx": "^0.3.2",
+    "supertest": "^4.0.2"
+  }
+}
